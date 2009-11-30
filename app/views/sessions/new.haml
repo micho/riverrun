@@ -1,15 +1,32 @@
-- title "Log in"
+- title "Riverrun"
 
-%p
-  Don't have an account?
-  = link_to "Sign up!", signup_path
+.panel
+  %p
+    Riverrun is an artistic experiment to determine how <b>context</b> and <b>coherence</b>
+    can influence the process of collective creation.
+  %p
+    We'll be running some Works, split into several Pieces, which you can join by editing a Piece.
+  %p
+    You will be able to see what your neighbors are writing in real-time. Your goal is to <b>make
+    the best possible literary piece</b>, collaborating with your mates and being consistent.
 
-- form_tag sessions_path do
+.panel
+
   %p
-    = label_tag :login, "Username or Email Address"
-    = text_field_tag :login, params[:login], :class => 'short'
-  %p
-    = label_tag :password
-    = password_field_tag :password, '', :class => 'short'
-  %p
-    = submit_tag "Log in"
+    Don't have an account?
+    = link_to "Sign up!", signup_path
+
+  - form_tag sessions_path do
+    %p
+      = label_tag :login, "Username or Email Address"
+      = text_field_tag :login, params[:login], :class => 'short'
+    %p
+      = label_tag :password
+      = password_field_tag :password, '', :class => 'short'
+    %p
+      = submit_tag "Log in"
+
+.clear
+
+.cosa{ :style => "font-family:Georgia; margin-top:30px; font-size:16px; font-style:italic; font-weight: bold; color: #999" }
+  = "... along the riverrun, past Eve and Adam"
