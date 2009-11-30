@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20091130174654) do
   create_table "works", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
+    t.integer  "visibility_radio", :default => 2
+    t.boolean  "cyclic", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

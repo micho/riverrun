@@ -1,6 +1,5 @@
 class Work < ActiveRecord::Base
-  attr_accessible :name
-  attr_accessible :user
+  attr_accessible :name, :user, :visibility_radio, :cyclic
   
   has_many :pieces, :dependent => :destroy, :order => 'position'
   belongs_to :user
@@ -25,14 +24,6 @@ class Work < ActiveRecord::Base
   
   def self.can_create?(current_user)
     true
-  end
-  
-  def cyclic
-    true
-  end
-
-  def visibility_radio
-    2
   end
   
   def change_log

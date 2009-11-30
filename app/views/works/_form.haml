@@ -3,6 +3,13 @@
   %p
     = f.label :name
     = f.text_field :name
+  %p
+    = f.label :visibility_radio, "Visibility radius: How many lines before and after can editors see?"
+    = f.text_field :visibility_radio
+  %p.inline
+    = f.check_box :cyclic
+    = f.label :cyclic, "Cyclic? Mark this so the work links the first piece to the last one."
+    
   - if @work.new_record?
     %p
       = f.label :number_of_pieces
