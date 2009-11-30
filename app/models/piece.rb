@@ -29,4 +29,9 @@ class Piece < ActiveRecord::Base
     end
   end
   
+  def updated_before(time)
+    self.versions.select do |piece|
+      piece.updated_at <= time
+    end.last
+  end
 end

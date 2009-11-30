@@ -8,7 +8,8 @@ class WorksController < ApplicationController
   end
   
   def changelog
-    @work = Work.find(params[:id])    
+    @work = Work.find(params[:id])
+    @change_log = @work.change_log    
   end
   
   def new
