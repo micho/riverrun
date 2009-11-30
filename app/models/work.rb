@@ -34,4 +34,10 @@ class Work < ActiveRecord::Base
   def visibility_radio
     2
   end
+  
+  def change_log
+    self.pieces.collect do |piece|
+      piece.versions
+    end.flatten.sort { |a,b| a.updated_at <=> b.updated_at }
+  end
 end

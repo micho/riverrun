@@ -5,7 +5,8 @@ class Piece < ActiveRecord::Base
   belongs_to :work
   
   acts_as_list :scope => :work
-  
+  acts_as_versioned
+
   def can_edit?(current_user)
     [current_user, work.user, nil].include? current_user
   end
@@ -27,4 +28,5 @@ class Piece < ActiveRecord::Base
       end
     end
   end
+  
 end

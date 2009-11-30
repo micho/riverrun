@@ -1,15 +1,13 @@
 - title "Work: #{@work.name}"
 
 %table#work_show
-  %tr
-    %th Name
   - for piece in @work.pieces
     %tr
       %td.piece{ :id => piece.id }
         = piece.text || "Empty"
-      %td.contents{ :id => "ago_#{piece.id}" }
+      %td.contents#ago
         = piece.text ? time_ago_in_words(piece.updated_at) : ''
-      %td.contents
+      %td.contents#author
         = piece.user ? piece.user.username : "Unassigned"
       %td.actions
         - if piece.can_edit? current_user
@@ -21,3 +19,13 @@
   - if @work.can_delete? current_user
     = link_to "Destroy", @work, :confirm => 'Are you sure?', :method => :delete
   = link_to "View All Works", works_path
+
+%h2 Change log
+
+%table#change_log
+  - @work.change_log.each do |piece|
+    - next if !piece.user_id and !piece.text
+    %tr
+      %td= time_ago_in_words piece.updated_at
+      %td= piece.user_id ? User.find(piece.user_id).username : 'Unassigned'
+      %td= piece.text

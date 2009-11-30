@@ -9,7 +9,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091130135728) do
+ActiveRecord::Schema.define(:version => 20091130174654) do
+
+  create_table "piece_versions", :force => true do |t|
+    t.integer  "piece_id"
+    t.integer  "version"
+    t.string   "text"
+    t.integer  "user_id"
+    t.integer  "work_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
+  end
+
+  add_index "piece_versions", ["piece_id"], :name => "index_piece_versions_on_piece_id"
+
+  create_table "pieces", :force => true do |t|
+    t.string   "text"
+    t.integer  "user_id"
+    t.integer  "work_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
+    t.integer  "version"
+  end
+
+  add_index "pieces", ["work_id"], :name => "index_pieces_on_work_id"
+  add_index "pieces", ["user_id"], :name => "index_pieces_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -26,15 +52,7 @@ ActiveRecord::Schema.define(:version => 20091130135728) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
-  create_table "pieces", :force => true do |t|
-    t.string   "text"
-    t.integer  "user_id"
-    t.integer  "work_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "position"
-  end
-  
+
+  add_index "works", ["user_id"], :name => "index_works_on_user_id"
 
 end
