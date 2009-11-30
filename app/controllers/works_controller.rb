@@ -7,6 +7,10 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
   end
   
+  def changelog
+    @work = Work.find(params[:id])    
+  end
+  
   def new
     permission_denied unless Work.can_create?(current_user)
     @work = Work.new

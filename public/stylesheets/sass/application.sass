@@ -89,19 +89,20 @@ a
 
 table
   tr
+    :font-size 12px
     &.updated
       :background-color rgb(250,250,200)
-    td.piece
+    td
       :vertical-align bottom
-      :font-size 12px
+      &.piece
+        :font-size 12px
       &.updated
         :background-color rgb(250,250,200)
-    td.contents, td.actions
-      :vertical-align bottom
-      :padding-left 20px
-      :font-size 10px
-      a
-        :color rgb(150,150,150)
+      &.contents, &.actions
+        :padding 1px 15px
+        :font-size 10px
+        a
+          :color rgb(150,150,150)
 
 label
   :display block

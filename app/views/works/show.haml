@@ -14,18 +14,9 @@
           = link_to "Edit", edit_work_piece_path(@work, piece)
 
 %p.actions
+  = link_to "View Changelog", changelog_work_path(@work)
   - if @work.can_edit? current_user
     = link_to "Edit", edit_work_path(@work)
   - if @work.can_delete? current_user
     = link_to "Destroy", @work, :confirm => 'Are you sure?', :method => :delete
   = link_to "View All Works", works_path
-
-%h2 Change log
-
-%table#change_log
-  - @work.change_log.each do |piece|
-    - next if !piece.user_id and !piece.text
-    %tr
-      %td= time_ago_in_words piece.updated_at
-      %td= piece.user_id ? User.find(piece.user_id).username : 'Unassigned'
-      %td= piece.text

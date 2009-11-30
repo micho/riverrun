@@ -1,0 +1,17 @@
+- title "Changelog for: #{@work.name}"
+
+%table#change_log
+  - @work.change_log.each do |piece|
+    - next if !piece.user_id and !piece.text
+    %tr
+      %td.contents= time_ago_in_words piece.updated_at
+      %td.contents= piece.user_id ? User.find(piece.user_id).username : 'Unassigned'
+      %td.contents= "Position #{piece.position}"
+      %td= piece.text
+      
+%p.actions
+  - if @work.can_edit? current_user
+    = link_to "Edit", edit_work_path(@work)
+  - if @work.can_delete? current_user
+    = link_to "Destroy", @work, :confirm => 'Are you sure?', :method => :delete
+  = link_to "View All Works", works_path
