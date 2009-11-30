@@ -2,7 +2,7 @@ class Work < ActiveRecord::Base
   attr_accessible :name
   attr_accessible :user
   
-  has_many :pieces, :dependent => :destroy, :order => 'created_at'
+  has_many :pieces, :dependent => :destroy, :order => 'position'
   belongs_to :user
 
   validates_presence_of :user
@@ -10,8 +10,8 @@ class Work < ActiveRecord::Base
   attr_accessor :number_of_pieces
   
   def after_create
-    number_of_pieces.times do
-      self.pieces.create!
+    number_of_pieces.times do |n|
+      self.pieces.create :position => n
     end
   end
   
@@ -25,5 +25,13 @@ class Work < ActiveRecord::Base
   
   def self.can_create?(current_user)
     true
+  end
+  
+  def cyclic
+    true
+  end
+
+  def visibility_radio
+    2
   end
 end

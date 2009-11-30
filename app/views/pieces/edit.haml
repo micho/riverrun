@@ -5,10 +5,18 @@
 
 - form_for @piece, :url => work_piece_path(@work, @piece), :method => :put do |f|
   = f.error_messages
-  %p
-    = f.text_field :text
-  %p
-    = f.submit "Submit"
+
+  - (1..@work.visibility_radio).to_a.reverse.each do |n|
+    - if @piece.previous(n)
+      %p= text_field_tag :"prev_#{n}", @piece.previous(n).text, :disabled => true
+
+  %p= f.text_field :text
+
+  - (1..@work.visibility_radio).each do |n|
+    - if @piece.next(n)
+      %p= text_field_tag :"next_#{n}", @piece.next(n).text, :disabled => true    
+
+  %p= f.submit "Submit"
 
 %p.actions
   - if @work.can_edit? current_user

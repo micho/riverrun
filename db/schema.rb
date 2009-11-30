@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20091130135728) do
     t.integer  "work_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
   
 
