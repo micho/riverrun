@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     flash[:error] = message || "You don't have permission to do that"
     redirect_to '/'
   end
+  
+  def not_found
+    render :file => "#{RAILS_ROOT}/public/404.html", :status => 404
+  end
 end

@@ -1,0 +1,18 @@
+- title "Editing your piece"
+
+- if @piece.user == current_user
+  This piece of the work now belongs to you. Nobody else can edit it.
+
+- form_for @piece, :url => work_piece_path(@work, @piece), :method => :put do |f|
+  = f.error_messages
+  %p
+    = f.text_field :text
+  %p
+    = f.submit "Submit"
+
+%p.actions
+  - if @work.can_edit? current_user
+    = link_to "Edit", edit_work_path(@work)
+  - if @work.can_delete? current_user
+    = link_to "Destroy", @work, :confirm => 'Are you sure?', :method => :delete
+  = link_to "Back to Work", work_path(@work)

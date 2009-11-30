@@ -2,7 +2,7 @@ class Work < ActiveRecord::Base
   attr_accessible :name
   attr_accessible :user
   
-  has_many :pieces, :dependent => :destroy
+  has_many :pieces, :dependent => :destroy, :order => 'created_at'
   belongs_to :user
 
   validates_presence_of :user
