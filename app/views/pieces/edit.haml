@@ -7,14 +7,14 @@
   = f.error_messages
 
   - (1..@work.visibility_radio).to_a.reverse.each do |n|
-    - if @piece.previous(n)
-      %p= text_field_tag :"prev_#{n}", @piece.previous(n).text, :disabled => true
+    - if piece = @piece.previous(n)
+      %p= text_field_tag :"prev_#{n}", piece.text, :disabled => true, :id => piece.id
 
   %p= f.text_field :text
 
   - (1..@work.visibility_radio).each do |n|
-    - if @piece.next(n)
-      %p= text_field_tag :"next_#{n}", @piece.next(n).text, :disabled => true    
+    - if piece = @piece.next(n)
+      %p= text_field_tag :"next_#{n}", piece.text, :disabled => true, :id => piece.id
 
   %p= f.submit "Submit"
 

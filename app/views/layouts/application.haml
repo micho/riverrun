@@ -4,7 +4,7 @@
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'jquery', 'application'
     = yield(:head)
-  %body
+  %body{ :class => location_name }
     #header
       .right_box
         - if current_user

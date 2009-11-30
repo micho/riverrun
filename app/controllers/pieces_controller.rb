@@ -1,9 +1,9 @@
 class PiecesController < ApplicationController
 
-  before_filter :find_work, :except => :show
-  before_filter :find_piece, :except => :show
+  before_filter :find_work, :except => :refresh
+  before_filter :find_piece, :except => :refresh
 
-  def show
+  def refresh
     @piece = Piece.find(params[:id])
 
     respond_to do |f|
