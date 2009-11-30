@@ -22,9 +22,17 @@ ActiveRecord::Schema.define(:version => 20091130135728) do
 
   create_table "works", :force => true do |t|
     t.string   "name"
-    t.integer  "pieces"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+  
+  create_table "pieces", :force => true do |t|
+    t.string   "text"
+    t.integer  "user_id"
+    t.integer  "work_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+  
 
 end
