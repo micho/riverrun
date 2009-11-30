@@ -13,6 +13,14 @@ class PiecesController < ApplicationController
 
   def edit
     permission_denied unless @piece.can_edit?(current_user)
+    
+    assigned_piece = @work.pieces.find_by_user_id current_user.id
+    if assigned_piece and assigned_piece != @piece
+      flash[:error] = "You can't collaborate with more than one piece at a time in a project. Sorry!"
+      redirect_to work_path(@work)
+      return
+    end
+
     if @piece.user.nil? and @piece.can_claim?(current_user)
       @piece.user = current_user
       @piece.save!
