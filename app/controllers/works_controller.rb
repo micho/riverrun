@@ -5,6 +5,14 @@ class WorksController < ApplicationController
   
   def show
     @work = Work.find(params[:id])
+    if not @work.can_edit?(current_user)
+      piece = @work.piece_assigned_to current_user
+      if piece
+        redirect_to edit_work_piece_path(@work,piece)
+      else
+        @unassigned_pieces = @work.unassigned_pieces
+      end
+    end
   end
   
   def changelog

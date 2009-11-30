@@ -10,7 +10,10 @@
       %td.contents
         = work.user.username
       %td.contents
-        = "#{work.pieces.count} pieces"
+        - if work.can_edit? current_user
+          = "#{work.pieces.count} pieces"
+        - else
+          Collaborate with this work
       %td.actions
         - if work.can_edit? current_user
           = link_to "Edit", edit_work_path(work)

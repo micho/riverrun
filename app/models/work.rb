@@ -40,4 +40,12 @@ class Work < ActiveRecord::Base
       piece.versions
     end.flatten.sort { |a,b| a.updated_at <=> b.updated_at }
   end
+  
+  def unassigned_pieces
+    self.pieces.select { |p| p.user.nil? }
+  end
+  
+  def piece_assigned_to(user)
+    self.pieces.find_by_user_id user.id
+  end
 end

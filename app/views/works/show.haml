@@ -1,22 +1,41 @@
 - title "Work: #{@work.name}"
 
-%table#work_show
-  - for piece in @work.pieces
-    %tr
-      %td.piece{ :id => piece.id }
-        = piece.text || "Empty"
-      %td.contents#ago
-        = piece.text ? time_ago_in_words(piece.updated_at) : ''
-      %td.contents#author
-        = piece.user ? piece.user.username : "Unassigned"
-      %td.actions
-        - if piece.can_edit? current_user
-          = link_to "Edit", edit_work_piece_path(@work, piece)
+- if @work.can_edit? current_user
+  %table#work_show
+    - for piece in @work.pieces
+      %tr
+        %td.piece{ :id => piece.id }
+          = piece.text || "Empty"
+        %td.contents#ago
+          = piece.text ? time_ago_in_words(piece.updated_at) : ''
+        %td.contents#author
+          = piece.user ? piece.user.username : "Unassigned"
+        %td.actions
+          - if piece.can_edit? current_user
+            = link_to "Edit", edit_work_piece_path(@work, piece)
 
-%p.actions
-  = link_to "View Changelog", changelog_work_path(@work)
-  - if @work.can_edit? current_user
-    = link_to "Edit", edit_work_path(@work)
-  - if @work.can_delete? current_user
-    = link_to "Destroy", @work, :confirm => 'Are you sure?', :method => :delete
-  = link_to "View All Works", works_path
+  %p.actions
+    = link_to "View Changelog", changelog_work_path(@work)
+    - if @work.can_edit? current_user
+      = link_to "Edit", edit_work_path(@work)
+    - if @work.can_delete? current_user
+      = link_to "Destroy", @work, :confirm => 'Are you sure?', :method => :delete
+    = link_to "View All Works", works_path
+
+- elsif @unassigned_pieces.size > 0
+  %p
+    You can now join this work to collaborate in its creation.
+  %p
+    At every moment, you will be able to see changes your neighboars introduce.
+  %p
+    The goal is to make the best possible literary work, coherent with the information around you.
+  %p
+    All your mates' messages will be updated in real time.
+    
+  %p
+    = link_to "Start writing in this work!", edit_work_piece_path(@work, @unassigned_pieces.rand)
+
+- else
+  %p
+    This project is complete now. There is no possibility to join, sorry!
+    
