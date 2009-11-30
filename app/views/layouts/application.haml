@@ -6,8 +6,12 @@
   %body
     #header
       .right_box
-        = link_to "Log in", login_path
-        = link_to "Create account", signup_path
+        - if current_user
+          = current_user.username
+          = link_to "Log out", logout_path
+        - else
+          = link_to "Log in", login_path
+          = link_to "Create account", signup_path
     #container
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
