@@ -1,12 +1,14 @@
 - title "Work: #{@work.name}"
 
-%table
+%table#work_show
   %tr
     %th Name
   - for piece in @work.pieces
     %tr
-      %td
+      %td.piece{ :id => piece.id }
         = piece.text || "Empty"
+      %td.contents{ :id => "ago_#{piece.id}" }
+        = piece.text ? time_ago_in_words(piece.updated_at) : ''
       %td.contents
         = piece.user ? piece.user.username : "Unassigned"
       %td.actions

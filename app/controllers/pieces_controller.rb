@@ -1,6 +1,15 @@
 class PiecesController < ApplicationController
 
-  before_filter :find_work, :find_piece
+  before_filter :find_work, :except => :show
+  before_filter :find_piece, :except => :show
+
+  def show
+    @piece = Piece.find(params[:id])
+
+    respond_to do |f|
+      f.js { render :layout => false }
+    end
+  end
 
   def edit
     permission_denied unless @piece.can_edit?(current_user)
