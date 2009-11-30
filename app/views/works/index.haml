@@ -1,0 +1,14 @@
+- title "Works"
+
+%table
+  %tr
+    %th Name
+  - for work in @works
+    %tr
+      %td
+        = link_to work.name, work
+      %td.actions
+        = link_to "Edit", edit_work_path(work)
+        = link_to "Destroy", work, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Work", new_work_path
