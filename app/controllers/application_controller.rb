@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
   
   before_filter :login_required
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  filter_parameter_logging :password
+  
+  private
+  
+  def permission_denied(message = nil)
+    flash[:error] = message || "You don't have permission to do that"
+    redirect_to '/'
+  end
 end

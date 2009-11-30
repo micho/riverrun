@@ -1,0 +1,21 @@
+- title "Work: #{@work.name}"
+
+%table
+  %tr
+    %th Name
+  - for piece in @work.pieces
+    %tr
+      %td
+        = piece.text || "Empty"
+      %td.contents
+        = piece.user ? piece.user.username : "Unassigned"
+      %td.actions
+        - if piece.can_edit? current_user
+          = link_to "Edit", edit_work_piece_path(@work, piece)
+
+%p.actions
+  - if @work.can_edit? current_user
+    = link_to "Edit", edit_work_path(@work)
+  - if @work.can_delete? current_user
+    = link_to "Destroy", @work, :confirm => 'Are you sure?', :method => :delete
+  = link_to "View All Works", works_path

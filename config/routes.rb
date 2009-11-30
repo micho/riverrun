@@ -5,10 +5,13 @@ ActionController::Routing::Routes.draw do |map|
   map.login 'login', :controller => 'sessions', :action => 'new'
   map.resources :sessions
 
-  map.resources :works
+  map.resources :works do |work|
+    work.resources :pieces
+  end
+
   map.resources :users
 
-  map.root :controller => "works"
+  map.root :controller => "sessions", :action => "new"
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

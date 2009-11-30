@@ -7,8 +7,15 @@
     %tr
       %td
         = link_to work.name, work
+      %td.contents
+        = work.user.username
+      %td.contents
+        = "#{work.pieces.count} pieces"
       %td.actions
-        = link_to "Edit", edit_work_path(work)
-        = link_to "Destroy", work, :confirm => 'Are you sure?', :method => :delete
+        - if work.can_edit? current_user
+          = link_to "Edit", edit_work_path(work)
+        - if work.can_delete? current_user
+          = link_to "Destroy", work, :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "New Work", new_work_path
+- if Work.can_create?(current_user)
+  %p= link_to "New Work", new_work_path

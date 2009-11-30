@@ -3,8 +3,9 @@
   %p
     = f.label :name
     = f.text_field :name
-  %p
-    = f.label :pieces
-    = f.text_field :pieces
+  - if @work.new_record?
+    %p
+      = f.label :number_of_pieces
+      = f.text_field :number_of_pieces
   %p
     = f.submit "Submit"

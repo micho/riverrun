@@ -3,4 +3,8 @@ class Piece < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :work
+  
+  def can_edit?(current_user)
+    [current_user, work.user, nil].include? current_user
+  end
 end
