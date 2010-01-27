@@ -1,0 +1,120 @@
+es:
+  layouts:
+    application:
+      logout: Cerrar sesión
+  sessions:
+    new:
+      intro1: "Riverrun es una aplicación informática que permite <b>crear colectivamente un relato a tiempo real</b>, para su posterior análisis."
+      intro2: "En este sencillo experimento, nos gustaría que participes, como parte de un grupo, en la creación de un cuento. Se te asignará una línea en blanco en una determinada posición del relato. Tu labor consiste en escribir una o varias frases, de modo que resulten coherentes narrativamente con las líneas escritas encima y debajo por otros agentes. Esas líneas pueden ir cambiando, situación que puede obligarte a reescribir tu línea para hacerla de nuevo coherente."
+      intro3: "El administrador decidirá y te hará saber cuando el cuento ha finalizado."
+      no_account: No tienes cuenta?
+      signup: "Inscríbete"
+      email: "Email o nombre de usuario"
+      send: Entrar
+  users:
+    new:
+      already: Ya tienes una cuenta?
+      login: Identifícate!
+      signup: Crear cuenta
+      password: Contraseña
+      confirm_password: Confirmar contraseña
+  pieces:
+    edit:
+      title: Editando tu trabajo
+  works:
+    form:
+      name: Título
+      visibility_radius: "Radio de visibilidad: Cuántas líneas antes y después pueden los usuarios ver?"
+      cyclic: "Obra circular? Marca esta opción para que la prim"
+      lines: "Number of lines / participants"
+      submit: Crear obra
+    show:
+      work: Obra
+      empty: Vacío
+      unassigned: Sin asignar
+      edit: Editar
+      changelog: Ver histórico de creación
+      edit: Editar
+      destroy: Borrar
+      confirm: Estás seguro
+      view_all: Ver todas las obras
+      start: Comienza a colaborar en esta obra!
+      complete: "Este proyecto está completo ahora, lo sentimos!"
+      explain1: Escoge cualquier líneas "sin asignar" para comenzar a trabajar en ella.
+      explain2: "El orden de las líneas no se corresponde necesariamente con el orden en la historia."
+      explain3: "Si tu parte es la primera en la obra, no verás a nadie por encima y tú empiezas. Si es la última, tú terminas la obra."
+      explain4: Los mensajes alrededor tuyo se actualizarán en tiempo real
+    changelog:
+      title: "Histórico de creación de '{{work}}'"
+      step_by_step: "Creación paso a paso"
+      unassigned: Sin asignar
+    new:
+      new: Nueva obra
+      back: Volver al listado
+    index:
+      title: Obras
+      name: Títulos
+      pieces: "{{count}} líneas"
+      join: Colaborar con esta obra
+      edit: Editar
+      destroy: Borrar
+      confirm: 'Estás seguro?'
+      create: Nueva obra
+    edit:
+      edit: Editar obra
+      show: Mostrar
+      index: Ver todas
+  pieces:
+    edit:
+      title: Edita tu parte
+      yours: Esta parte de la obra te pertenece. Nadie más puede editarla.
+      admin_edit: "Dado que eres el creador de esta obra, puedes editarla sin que los participantes lo sepan."
+      submit: Envíar mis cambios
+      edit: Editar
+      destroy: Borrar
+      back: De vuelta a la obra
+      confirm: 'Estás seguro?'
+    refresh:
+      unassigned: Sin asignar
+
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "medio minuto" 
+      less_than_x_seconds:
+        one:  "menos de 1 segundo" 
+        other: "menos de {{count}} segundos"
+      x_seconds:
+        one:  "1 segundo" 
+        other: "{{count}} segundos" 
+      less_than_x_minutes:
+        one:  "menos de 1 minuto" 
+        other: "menos de {{count}} minutos" 
+      x_minutes:
+        one:  "1 minuto" 
+        other: "{{count}} minutos" 
+      about_x_hours:
+        one:  "alrededor de 1 hora" 
+        other: "alrededor de {{count}} horas" 
+      x_days:
+        one:  "1 día" 
+        other: "{{count}} días" 
+      about_x_months:
+        one:  "alrededor de 1 mes" 
+        other: "alrededor de {{count}} meses" 
+      x_months:
+        one:  "1 mes" 
+        other: "{{count}} meses" 
+      about_x_years:
+        one:  "alrededor de 1 año" 
+        other: "alrededor de {{count}} años" 
+      over_x_years:
+        one:  "más de 1 año" 
+        other: "más de {{count}} años"
+    prompts:
+      year:   "Año"
+      month:  "Mes"
+      day:    "Día"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundos"

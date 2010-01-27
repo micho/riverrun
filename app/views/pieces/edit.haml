@@ -1,7 +1,9 @@
-- title "Editing your piece"
+- title t('.title')
 
 - if @piece.user == current_user
-  This piece of the work now belongs to you. Nobody else can edit it.
+  = t('.yours')
+- else
+  = t('.admin_edit')
 
 - form_for @piece, :url => work_piece_path(@work, @piece), :method => :put do |f|
   = f.error_messages
@@ -16,11 +18,11 @@
     - if piece = @piece.next(n)
       %p= text_field_tag :"next_#{n}", piece.text, :disabled => true, :id => piece.id
 
-  %p= f.submit "Submit"
+  %p= f.submit t('.submit')
 
 %p.actions
   - if @work.can_edit? current_user
-    = link_to "Edit", edit_work_path(@work)
+    = link_to t('.edit'), edit_work_path(@work)
   - if @work.can_delete? current_user
-    = link_to "Destroy", @work, :confirm => 'Are you sure?', :method => :delete
-  = link_to "Back to Work", work_path(@work)
+    = link_to t('.destroy'), @work, :confirm => t('.confirm'), :method => :delete
+  = link_to t('.back'), work_path(@work)

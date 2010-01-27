@@ -1,8 +1,8 @@
-<% title "Edit Work" %>
+<% title t('.edit') %>
 
 <%= render :partial => 'form' %>
 
 <p>
-  <%= link_to "Show", @work %> |
-  <%= link_to "View All", works_path %>
+  <%= link_to t('.show'), @work %> |
+  <%= link_to t('.index'), works_path %>
 </p>

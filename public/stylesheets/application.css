@@ -90,6 +90,8 @@ table tr {
       font-size: 10px; }
       table tr td.contents a, table tr td.actions a {
         color: rgb(150,150,150); }
+    table tr td.time {
+      width: 75px; }
 
 table.work_state {
   width: 100%;
@@ -119,6 +121,4 @@ input.short {
   width: 300px; }
 
 .panel {
-  width: 360px;
-  margin-right: 10px;
-  float: left; }
+  margin-right: 10px; }

@@ -5,7 +5,7 @@
 
     tr = $("td#<%= @piece.id %>").closest("tr")
     tr.find("#ago").html("<%=h time_ago_in_words @piece.updated_at %>")
-    tr.find("#author").html("<%=h @piece.user ? @piece.user.username : 'Unassigned' %>")
+    tr.find("#author").html("<%=h @piece.user ? @piece.user.username : t('.unassigned') %>")
 
     <% if @piece.updated_at > 30.seconds.ago %>
       $("td#<%= @piece.id %>").closest("tr").addClass("updated")

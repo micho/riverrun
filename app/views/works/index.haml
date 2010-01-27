@@ -1,8 +1,8 @@
-- title "Works"
+- title t('.title')
 
 %table
   %tr
-    %th Name
+    %th= t('.name')
   - for work in @works
     %tr
       %td
@@ -11,14 +11,14 @@
         = work.user.username
       %td.contents
         - if work.can_edit? current_user
-          = "#{work.pieces.count} pieces"
+          = t('.pieces', :count => work.pieces.count)
         - else
-          Collaborate with this work
+          = t('.join')
       %td.actions
         - if work.can_edit? current_user
-          = link_to "Edit", edit_work_path(work)
+          = link_to t('.edit'), edit_work_path(work)
         - if work.can_delete? current_user
-          = link_to "Destroy", work, :confirm => 'Are you sure?', :method => :delete
+          = link_to t('.destroy'), work, :confirm => t('.confirm'), :method => :delete
 
 - if Work.can_create?(current_user)
-  %p= link_to "New Work", new_work_path
+  %p= link_to t('.create'), new_work_path

@@ -1,12 +1,12 @@
-- title "Changelog for: #{@work.name}"
+- title t('.title', :work => @work.name)
 
 %table#change_log
   - @change_log.each do |piece|
     - next if !piece.user_id and !piece.text
     %tr
-      %td.contents= time_ago_in_words piece.updated_at
-      %td.contents= piece.user_id ? User.find(piece.user_id).username : 'Unassigned'
-      %td.contents= "Position #{piece.position}"
+      %td.contents.time= piece.updated_at.strftime("%m-%d-%H:%M")
+      %td.contents= piece.user_id ? User.find(piece.user_id).username : t('.unassigned')
+      %td.contents= "Pos##{piece.position}"
       %td= piece.text
       
 %p.actions
@@ -17,6 +17,6 @@
     = link_to "Destroy", @work, :confirm => 'Are you sure?', :method => :delete
   = link_to "View All Works", works_path
 
-%h2 Work history, step by step
+%h2= t('.step_by_step')
 - @change_log.each do |piece|
   = draw_work_until_version piece

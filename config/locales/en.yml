@@ -1,5 +1,78 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      logout: Log out
+  sessions:
+    new:
+      intro1: "Riverrun is a computer program which makes it possible to <b>collectively write a story in real time</b> and then analyse the outcome after the event."
+      intro2: "In this simple experiment, we would like you to try as a group to write a story. You will be assigned a blank line at a specific point in the story. Your job is to write one or various sentences which fit narratively with the lines written above and below yours by other participants. These lines may keep on changing, obliging you to rewrite your line so that it again becomes coherent."
+      intro3: "The administrator will let you know when the story is complete."
+      no_account: Don't have an account?
+      signup: "Sign up!"
+      email: "Email Address or Username"
+      send: Log in
+  users:
+    new:
+      already: Already have an account?
+      login: Log in!
+      signup: "Sign up"
+      password: Password
+      confirm_password: Confirm Password
+  pieces:
+    edit:
+      title: "Editing your piece"
+  works:
+    form:
+      name: Title
+      visibility_radius: "Visibility radius: How many lines before and after can editors see?"
+      cyclic: "Circular work? Check if you want the last line to link with the first."
+      lines: "Number of lines / participants"
+      submit: "Create Work"
+    show:
+      work: Work
+      empty: Empty
+      unassigned: Unassigned
+      edit: Edit
+      changelog: "View Changelog"
+      edit: Edit
+      destroy: Destroy
+      confirm: Are you sure?
+      view_all: View All Works
+      start: Start writing in this work!
+      complete: "This project is complete now. There is no possibility to join, sorry!"
+      explain1: Choose any "unassigned line" to enter the story-telling process.
+      explain2: "The order of the lines on this page does not necessarily correspond with the actual order in the story. That's to say, you don't know the position of your line in the story, unless you are writing at the beginning or end of the story (in which case you will see that you have more lines belonging to other participants above or below)."
+      explain3: "If there is no line above yours, you begin the story. If there is no line below yours, you end the story."
+      explain4: Messages around you will be updated in real-time.
+    changelog:
+      title: "Changelog for '{{work}}'"
+      step_by_step: "Work history, step by step"
+      unassigned: Unassigned
+    new:
+      new: New Work
+      back: Back to List
+    index:
+      title: Works
+      name: Title
+      pieces: "{{count}} pieces"
+      join: Collaborate with this work
+      edit: Edit
+      destroy: Destroy
+      confirm: 'Are you sure?'
+      create: New Work
+    edit:
+      title: Edit Work
+      show: Show
+      index: View All
+  pieces:
+    edit:
+      title: Write your part
+      yours: This piece of the work now belongs to you. Nobody else can edit it.
+      admin_edit: "Since you are the creator of this work, you can edit this piece without the rest of the participants knowing."
+      submit: Send update
+      edit: Edit
+      destroy: Destroy
+      back: Back to General View
+      confirm: 'Are you sure?'
+    refresh:
+      unassigned: Unassigned
