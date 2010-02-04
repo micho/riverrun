@@ -26,3 +26,4 @@
   - if @work.can_delete? current_user
     = link_to t('.destroy'), @work, :confirm => t('.confirm'), :method => :delete
   = link_to t('.back'), work_path(@work)
+  = link_to t('.listing'), works_path

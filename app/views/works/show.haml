@@ -1,6 +1,12 @@
 - title "#{t('.work')}: #{@work.name}"
 
 - if @work.can_edit? current_user
+  - unless @work.completed_at
+    %p
+      = t('.work_is_active')
+      = link_to t('.stop_it'), stop_work_path(@work)
+      = t('.to_conclude')
+
   %table#work_show
     - for piece in @work.pieces
       %tr

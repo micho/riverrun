@@ -44,6 +44,10 @@ en:
       explain2: "The order of the lines on this page does not necessarily correspond with the actual order in the story. That's to say, you don't know the position of your line in the story, unless you are writing at the beginning or end of the story (in which case you will see that you have more lines belonging to other participants above or below)."
       explain3: "If there is no line above yours, you begin the story. If there is no line below yours, you end the story."
       explain4: Messages around you will be updated in real-time.
+      work_is_active: This work is active.
+      stop_it: Stop it
+      to_conclude: to conclude the creation process
+      done: "The work has finished. Users will not be able to edit it anymore."
     changelog:
       title: "Changelog for '{{work}}'"
       step_by_step: "Work history, step by step"
@@ -60,6 +64,7 @@ en:
       destroy: Destroy
       confirm: 'Are you sure?'
       create: New Work
+      complete: Creation complete
     edit:
       title: Edit Work
       show: Show
@@ -73,6 +78,9 @@ en:
       edit: Edit
       destroy: Destroy
       back: Back to General View
+      listing: Back to Works listing
       confirm: 'Are you sure?'
+      updated: Your contribution has been sent to the others. You may now edit it again.
+      complete: This work is now complete. You can not edit it anymore.
     refresh:
       unassigned: Unassigned

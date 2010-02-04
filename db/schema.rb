@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20091130174654) do
     t.boolean  "cyclic", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "completed_at", :default => nil
   end
 
   add_index "works", ["user_id"], :name => "index_works_on_user_id"

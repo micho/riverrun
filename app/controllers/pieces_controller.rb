@@ -29,8 +29,12 @@ class PiecesController < ApplicationController
   
   def update
     permission_denied unless @piece.can_edit?(current_user)
-    if @piece.update_attributes(params[:piece])
-      flash[:notice] = "Successfully updated piece."
+
+    if @piece.work.completed_at
+      flash[:error] = t('pieces.edit.complete')
+      redirect_to edit_work_piece_path
+    elsif @piece.update_attributes(params[:piece])
+      flash[:notice] = t('pieces.edit.updated')
       redirect_to edit_work_piece_path
     else
       render :action => 'edit'

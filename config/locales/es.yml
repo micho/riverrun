@@ -44,6 +44,10 @@ es:
       explain2: "El orden de las líneas no se corresponde necesariamente con el orden en la historia."
       explain3: "Si tu parte es la primera en la obra, no verás a nadie por encima y tú empiezas. Si es la última, tú terminas la obra."
       explain4: Los mensajes alrededor tuyo se actualizarán en tiempo real
+      work_is_active: Esta obra está activa.
+      stop_it: Párala
+      to_conclude: para concluir el proceso creativo.
+      done: "The work has finished. Users will not be able to edit it anymore."
     changelog:
       title: "Histórico de creación de '{{work}}'"
       step_by_step: "Creación paso a paso"
@@ -60,6 +64,7 @@ es:
       destroy: Borrar
       confirm: 'Estás seguro?'
       create: Nueva obra
+      complete: Creación completa
     edit:
       edit: Editar obra
       show: Mostrar
@@ -73,7 +78,10 @@ es:
       edit: Editar
       destroy: Borrar
       back: De vuelta a la obra
+      listing: Ver todas las obras
       confirm: 'Estás seguro?'
+      updated: Tu contribución se ha enviado. Puedes seguir editando.
+      complete: Esta obra se ha completado. Ya no puedes editarla más.
     refresh:
       unassigned: Sin asignar
 

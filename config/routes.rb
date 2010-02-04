@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.refresh 'refresh/:mode/:id', :controller => 'pieces', :action => 'refresh'
 
-  map.resources :works, :member => {:changelog => :get} do |work|
+  map.resources :works, :member => {:changelog => :get, :stop => :get} do |work|
     work.resources :pieces
   end
 

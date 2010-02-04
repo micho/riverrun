@@ -4,21 +4,24 @@
   %tr
     %th= t('.name')
   - for work in @works
-    %tr
-      %td
-        = link_to work.name, work
-      %td.contents
-        = work.user.username
-      %td.contents
-        - if work.can_edit? current_user
-          = t('.pieces', :count => work.pieces.count)
-        - else
-          = t('.join')
-      %td.actions
-        - if work.can_edit? current_user
-          = link_to t('.edit'), edit_work_path(work)
-        - if work.can_delete? current_user
-          = link_to t('.destroy'), work, :confirm => t('.confirm'), :method => :delete
+    - if !work.completed_at || (work.completed_at && work.user == current_user)
+      %tr
+        %td
+          = link_to work.name, work
+        %td.contents
+          = work.user.username
+        %td.contents
+          - if work.completed_at
+            = t('.complete')
+          - elsif work.can_edit? current_user
+            = t('.pieces', :count => work.pieces.count)
+          - else
+            = t('.join')
+        %td.actions
+          - if work.can_edit? current_user
+            = link_to t('.edit'), edit_work_path(work)
+          - if work.can_delete? current_user
+            = link_to t('.destroy'), work, :confirm => t('.confirm'), :method => :delete
 
 - if Work.can_create?(current_user)
   %p= link_to t('.create'), new_work_path

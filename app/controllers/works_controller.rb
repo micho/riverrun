@@ -61,4 +61,15 @@ class WorksController < ApplicationController
     flash[:notice] = "Successfully destroyed work."
     redirect_to works_url
   end
+  
+  def stop
+    @work = Work.find(params[:id])
+    @work.completed_at = Time.current
+    if @work.save
+      flash[:notice] = t('works.show.done')
+    else
+      flash[:error] = "Error stopping work."
+    end
+    redirect_to work_path(@work)
+  end
 end
